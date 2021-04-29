@@ -6,8 +6,8 @@
 
 	<!-- =========================================================================================================== -->
 	<!-- Project information -->
-	<artifactId>cassandre-trading-bot-spring-boot-starter-test</artifactId>
-	<name>Trading bot spring boot starter for test</name>
+	<artifactId>cassandre-trading-bot-spring-boot-starter-api</artifactId>
+	<name>Trading bot spring boot starter for api</name>
 	<!-- =========================================================================================================== -->
 
 	<!-- =========================================================================================================== -->
@@ -16,17 +16,17 @@
 		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
 
 		<!-- Autoconfigure -->
 		<dependency>
 			<groupId>tech.cassandre.trading.bot</groupId>
-			<artifactId>cassandre-trading-bot-spring-boot-starter-test-autoconfigure</artifactId>
+			<artifactId>cassandre-trading-bot-spring-boot-starter-api-autoconfigure</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
