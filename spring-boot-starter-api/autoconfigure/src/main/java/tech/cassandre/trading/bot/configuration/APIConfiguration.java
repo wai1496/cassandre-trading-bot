@@ -2,21 +2,24 @@ package tech.cassandre.trading.bot.configuration;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import tech.cassandre.trading.bot.util.APIParameters;
-
-import javax.annotation.PostConstruct;
 
 /**
  * API Configuration.
  */
 @Configuration
+@EnableWebMvc
+@ComponentScan(basePackages = "tech.cassandre.trading.bot.web.api")
 @EnableConfigurationProperties(APIParameters.class)
 @ConditionalOnClass({ExchangeAutoConfiguration.class, StrategiesAutoConfiguration.class})
-public class APIConfiguration {
+public class APIConfiguration implements WebMvcConfigurer {
 
     /** API parameters. */
-    private APIParameters apiParameters;
+    private final APIParameters apiParameters;
 
     /**
      * Constructor.
@@ -25,11 +28,6 @@ public class APIConfiguration {
      */
     public APIConfiguration(final APIParameters newAPIParameters) {
         this.apiParameters = newAPIParameters;
-    }
-
-    @PostConstruct
-    public final void configure() {
-        System.out.println("Started ! " + apiParameters);
     }
 
 }
