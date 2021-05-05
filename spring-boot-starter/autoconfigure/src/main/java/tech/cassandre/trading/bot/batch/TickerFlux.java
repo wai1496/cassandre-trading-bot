@@ -59,11 +59,8 @@ public class TickerFlux extends BaseExternalFlux<TickerDTO> {
         try {
             // GetTickers from market service is available so we retrieve all tickers at once.
             marketService.getTickers(currencyPairs).forEach(ticker -> {
-                if (!ticker.equals(previousValues.get(ticker.getCurrencyPair()))) {
                     logger.debug("TickerFlux - New ticker received : {}", ticker);
-                    previousValues.put(ticker.getCurrencyPair(), ticker);
                     newValues.add(ticker);
-                }
             });
         } catch (NotAvailableFromExchangeException | NotYetImplementedForExchangeException e) {
             logger.debug("MarketService - getTickers not available {}", e.getMessage());
