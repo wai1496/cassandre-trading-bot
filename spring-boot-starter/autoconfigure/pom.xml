@@ -157,7 +157,7 @@
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-binance</artifactId>
-            <version>5.0.8</version>
+            <version>5.0.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
